@@ -17,3 +17,7 @@ config :diogo_api, DiogoApi.Repo,
   database: "diogo_api_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure comeonin number of rounds to avoid slowing tests
+config :comeonin, :bcrypt_log_rounds, 4
+config :comeonin, :pbkdf2_rounds, 1

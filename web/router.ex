@@ -13,10 +13,29 @@ defmodule DiogoApi.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :api_auth do
+    plug :accepts, ["json"] 
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
+    plug Guardian.Plug.LoadResource
+  end
+
   scope "/", DiogoApi do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+  end
+
+  scope "/", DiogoApi do
+    pipe_through :api
+
+    post "/authentications/signup/local", AuthenticationController, :signup_local
+    post "/authentications/signin/local", AuthenticationController, :signin_local
+  end
+
+  scope "/", DiogoApi do
+    pipe_through :api_auth
+
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
