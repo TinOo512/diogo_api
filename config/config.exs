@@ -30,7 +30,7 @@ config :guardian, Guardian,
   ttl: { 30, :days },
   allowed_drift: 2000,
   verify_issuer: true,
-  secret_key: "secret",
+  secret_key: System.get_env("GUARDIAN_SECRET_KEY_PASSPHRASE") || "wAkmBpJTEVoXT5Ibtx/vsWO5aGUy0dDjReHgej/ERJYbuzRNDp0cPjB5CZi9vU20",
   serializer: DiogoApi.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom
