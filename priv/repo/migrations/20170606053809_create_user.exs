@@ -3,11 +3,11 @@ defmodule DiogoApi.Repo.Migrations.CreateUser do
 
   def change do
     create table(:users) do
-      add :email, :string
-      add :password_hash, :string
-      add :name, :string
+      add :email, :text
+      add :password_hash, :text
+      add :name, :text
 
-      timestamps()
+      timestamps(type: :timestamptz)
     end
 
     create unique_index(:users, [:email])
