@@ -36,6 +36,7 @@ defmodule DiogoApi.Router do
     pipe_through :api_auth
 
     resources "/users", UserController
+    resources "/pictures", PictureController
   end
 
   # Other scopes may use custom stacks.
