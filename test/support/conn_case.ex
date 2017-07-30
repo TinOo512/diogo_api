@@ -1,11 +1,11 @@
-defmodule DiogoApi.ConnCase do
+defmodule DiogoApiWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
 
   Such tests rely on `Phoenix.ConnTest` and also
   import other functionality to make it easier
-  to build and query models.
+  to build common datastructures and query the data layer.
 
   Finally, if the test case interacts with the database,
   it cannot be async. For this reason, every test runs
@@ -25,10 +25,10 @@ defmodule DiogoApi.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
-      import DiogoApi.Router.Helpers
+      import DiogoApiWeb.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint DiogoApi.Endpoint
+      @endpoint DiogoApiWeb.Endpoint
     end
   end
 

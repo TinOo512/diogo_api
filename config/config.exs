@@ -10,11 +10,11 @@ config :diogo_api,
   ecto_repos: [DiogoApi.Repo]
 
 # Configures the endpoint
-config :diogo_api, DiogoApi.Endpoint,
+config :diogo_api, DiogoApiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "pnrgNxdtGu78mvyYzsYA5nXQQGDd4MPnkupoNOtBetF3Sjr/kS062vXmxawDk2+c",
-  render_errors: [view: DiogoApi.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: DiogoApi.PubSub,
+  render_errors: [view: DiogoApiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: DiogoApiWeb.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -31,7 +31,7 @@ config :guardian, Guardian,
   allowed_drift: 2000,
   verify_issuer: true,
   secret_key: System.get_env("GUARDIAN_SECRET_KEY_PASSPHRASE") || "wAkmBpJTEVoXT5Ibtx/vsWO5aGUy0dDjReHgej/ERJYbuzRNDp0cPjB5CZi9vU20",
-  serializer: DiogoApi.GuardianSerializer
+  serializer: DiogoApiWeb.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
