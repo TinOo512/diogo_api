@@ -33,6 +33,12 @@ config :guardian, Guardian,
   secret_key: System.get_env("GUARDIAN_SECRET_KEY_PASSPHRASE") || "wAkmBpJTEVoXT5Ibtx/vsWO5aGUy0dDjReHgej/ERJYbuzRNDp0cPjB5CZi9vU20",
   serializer: DiogoApi.GuardianSerializer
 
+# Configures Cloudex
+config :cloudex,
+  api_key: "935123256825118",
+  secret: System.get_env("CLOUDINARY_SECRET"),
+  cloud_name: "diogopic"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
